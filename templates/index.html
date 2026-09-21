@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <p class="prompt">weather-cli</p>
+    <h1>Check the sky<br>before you go.</h1>
+    <p class="subtitle">Enter a city and get current conditions instantly.</p>
+
+    <div class="search">
+        <form method="POST" action="{{ url_for('index') }}">
+            <input type="text" name="location" placeholder="Enter city name" spellcheck="false">
+            <input type="image" src="{{ url_for('static', filename='img/search.svg') }}" alt="Search">
+        </form>
+    </div>
+</div>
+{% endblock %}

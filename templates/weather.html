@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <div class="weather">
+        <div class="overview">
+            <img src="{{ weather.icon_url }}" class="weather-icon" alt="{{ weather.description }}">
+            <h1 class="temp">{{ weather.temp }}&deg;C</h1>
+            <h2 class="city">{{ weather.city }}</h2>
+        </div>
+
+        <div class="details">
+            <p class="humidity" data-value="{{ weather.humidity }}%">Humidity</p>
+            <p class="precipitation" data-value="{{ weather.precipitation }} mm">Precipitation</p>
+            <p class="wind" data-value="{{ weather.wind }} m/s">Wind</p>
+        </div>
+    </div>
+
+    <p class="back"><a href="{{ url_for('index') }}">&larr; Search another city</a></p>
+</div>
+{% endblock %}
