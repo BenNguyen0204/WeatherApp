@@ -8,9 +8,29 @@
 
     <div class="search">
         <form method="POST" action="{{ url_for('index') }}">
-            <input type="text" name="location" placeholder="Enter city name" spellcheck="false">
+            <input type="text" name="location" placeholder="Enter city name" spellcheck="false" value="{{ request.form.get('location', '') }}">
             <input type="image" src="{{ url_for('static', filename='img/search.svg') }}" alt="Search">
         </form>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if weather %}
+        <div class="weather">
+            <div class="overview">
+                <img src="{{ weather.icon_url }}" class="weather-icon" alt="{{ weather.description }}">
+                <h1 class="temp">{{ weather.temp }}&deg;C</h1>
+                <h2 class="city">{{ weather.city }}</h2>
+            </div>
+
+            <div class="details">
+                <p class="humidity" data-value="{{ weather.humidity }}%">Humidity</p>
+                <p class="precipitation" data-value="{{ weather.precipitation }} mm">Precipitation</p>
+                <p class="wind" data-value="{{ weather.wind }} m/s">Wind</p>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

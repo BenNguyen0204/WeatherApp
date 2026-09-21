@@ -19,6 +19,7 @@ def index():
         location = request.form.get("location", "").strip()
         if not location:
             return render_template("index.html", error="Enter a city name.")
+
         try:
             data = get_weather(location)
         except CityNotFoundError:
@@ -38,8 +39,7 @@ def index():
             "icon_url": get_icon_url(data),
         }
 
-        return render_template("weather.html", weather=weather_info)
-
+        return render_template("index.html", weather=weather_info)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

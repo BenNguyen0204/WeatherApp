@@ -115,12 +115,9 @@ body {
 .weather {
     display: flex;
     gap: 32px;
-    width: 100%;
-    border-radius: 8px;
-    background: var(--panel);
-    border: 1px solid var(--panel-edge);
-    padding: 36px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--panel-edge);
 }
 
 .overview {
@@ -167,19 +164,4 @@ body {
     content: attr(data-value);
     color: var(--text);
     font-weight: 700;
-}
-
-.back {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.back a {
-    font-size: 14px;
-    color: var(--accent);
-    text-decoration: none;
-}
-
-.back a:hover {
-    text-decoration: underline;
 }
