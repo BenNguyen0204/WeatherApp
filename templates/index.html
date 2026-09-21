@@ -19,7 +19,7 @@
         {% endif %}
 
         {% if weather %}
-        <button type="button" id="unit-toggle" data-unit="{{ unit or 'metric' }}">{{ 'Change to °F' if (unit or 'metric') == 'metric' else 'Change to °C' }}</button>
+        <button type="button" id="unit-toggle" data-unit="{{ unit or 'metric' }}">{{ 'Switch to Imperial' if (unit or 'metric') == 'metric' else 'Switch to Metric' }}</button>
 
         <div class="weather">
             <div class="overview">
