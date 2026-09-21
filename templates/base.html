@@ -7,7 +7,11 @@
     <title>{% block title %} Weather App {% endblock %}</title>
 </head>
 <body>
+    <button id="theme-toggle" type="button">☀ Light</button>
+
     {% block content %}
     {% endblock %}
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

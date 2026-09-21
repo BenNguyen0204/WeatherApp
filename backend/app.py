@@ -28,7 +28,6 @@ def index():
             return render_template("index.html", error="Weather service is unavailable right now.")
 
         rain_last_hour = data.get("rain", {}).get("1h", 0)
-
         weather_info = {
             "city": data.get("_resolved_name") or data.get("name") or location,
             "temp": round(data["main"]["temp"]),

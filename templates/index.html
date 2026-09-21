@@ -25,9 +25,24 @@
             </div>
 
             <div class="details">
-                <p class="humidity" data-value="{{ weather.humidity }}%">Humidity</p>
-                <p class="precipitation" data-value="{{ weather.precipitation }} mm">Precipitation</p>
-                <p class="wind" data-value="{{ weather.wind }} m/s">Wind</p>
+                <p class="humidity" data-value="{{ weather.humidity }}%">
+                    <span class="label">
+                        <img src="{{ url_for('static', filename='img/humidity.svg') }}" alt="">
+                        Humidity
+                    </span>
+                </p>
+                <p class="precipitation" data-value="{{ weather.precipitation }} mm">
+                    <span class="label">
+                        <img src="{{ url_for('static', filename='img/precipitation.svg') }}" alt="">
+                        Precipitation
+                    </span>
+                </p>
+                <p class="wind" data-value="{{ weather.wind }} m/s">
+                    <span class="label">
+                        <img src="{{ url_for('static', filename='img/wind.svg') }}" alt="">
+                        Wind
+                    </span>
+                </p>
             </div>
         </div>
         {% endif %}

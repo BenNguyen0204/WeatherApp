@@ -24,6 +24,37 @@ body {
     padding: 20px;
 }
 
+body.light {
+    --bg: #f4f6f8;
+    --panel: #ffffff;
+    --panel-edge: #d5dbe3;
+    --accent: #d9822b;
+    --text: #172033;
+    --muted: #667085;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    padding: 10px 14px;
+    border: 1px solid var(--panel-edge);
+    border-radius: 6px;
+
+    background: var(--panel);
+    color: var(--text);
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+#theme-toggle:hover {
+    border-color: var(--accent);
+}
+
 .hero {
     width: 560px;
     max-width: 100%;
@@ -123,6 +154,9 @@ body {
 .overview {
     padding-right: 32px;
     border-right: 1px solid var(--panel-edge);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .overview .weather-icon {
@@ -155,9 +189,20 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    min-width: 190px;
+    min-width: 250px;
     font-size: 15px;
     color: var(--muted);
+}
+
+.details p .label {
+    display: block;
+    align-items: center;
+    gap: 8px;
+}
+
+.details p .label img {
+    width: 16px;
+    height: 16px;
 }
 
 .details p::after {

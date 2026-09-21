@@ -9,11 +9,13 @@ A small Flask web app for checking current weather conditions by city name, buil
 - Shows temperature, humidity, wind speed, and recent precipitation
 - Matches each condition to one of Google's weather icons
 - Shows a friendly error message on the search page if a city isn't found or the API is unreachable
+- Supports dark and light modes and stores the selected theme in localStorage
 
 ## Requirements
 
-- Python 3.8+
+- Python 3+
 - An OpenWeatherMap API key ([get one here](https://home.openweathermap.org/api_keys))
+- Python packages listed in backend/requirements.txt
 
 ## Setup
 
@@ -47,8 +49,7 @@ WeatherApp/
 │   └── .env             # not committed — holds OPENWEATHER_API_KEY
 ├── templates/
 │   ├── base.html
-│   ├── index.html       # search page
-│   └── weather.html     # results page
+│   └── index.html       # search page  
 └── static/
     ├── style.css
     └── img/search.svg
@@ -65,5 +66,10 @@ WeatherApp/
 
 ## Stack
 
-- Python, Flask
-- OpenWeatherMap API (geocoding + current weather)
+- Python
+- Flask
+- JavaScript
+- HTML/CSS
+- OpenWeatherMap API
+- Geocoding API
+- Current Weather API
