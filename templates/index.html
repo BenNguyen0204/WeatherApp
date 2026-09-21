@@ -7,8 +7,10 @@
     <p class="subtitle">Enter a city and get current conditions instantly.</p>
 
     <div class="search">
-        <form method="POST" action="{{ url_for('index') }}">
-            <input type="text" name="location" placeholder="Enter city name" spellcheck="false" value="{{ request.form.get('location', '') }}">
+        <form method="POST" action="{{ url_for('index') }}" id="weather-form">
+            <input type="text" name="location" placeholder="Enter city name" spellcheck="false"
+                value="{{ location or request.form.get('location', '') }}">
+            <input type="hidden" name="unit" id="unit-input" value="{{ unit or 'metric' }}">
             <input type="image" src="{{ url_for('static', filename='img/search.svg') }}" alt="Search">
         </form>
 
@@ -17,10 +19,12 @@
         {% endif %}
 
         {% if weather %}
+        <button type="button" id="unit-toggle" data-unit="{{ unit or 'metric' }}">{{ 'Change to °F' if (unit or 'metric') == 'metric' else 'Change to °C' }}</button>
+
         <div class="weather">
             <div class="overview">
                 <img src="{{ weather.icon_url }}" class="weather-icon" alt="{{ weather.description }}">
-                <h1 class="temp">{{ weather.temp }}&deg;C</h1>
+                <h1 class="temp">{{ weather.temp }}&deg;{{ 'F' if unit == 'imperial' else 'C' }}</h1>
                 <h2 class="city">{{ weather.city }}</h2>
             </div>
 
@@ -37,7 +41,7 @@
                         Precipitation
                     </span>
                 </p>
-                <p class="wind" data-value="{{ weather.wind }} m/s">
+                <p class="wind" data-value="{{ weather.wind }} {{ 'mph' if unit == 'imperial' else 'm/s' }}">
                     <span class="label">
                         <img src="{{ url_for('static', filename='img/wind.svg') }}" alt="">
                         Wind

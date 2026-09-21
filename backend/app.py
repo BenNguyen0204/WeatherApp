@@ -13,19 +13,22 @@ app = Flask(
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
-        return render_template("index.html")
+        return render_template("index.html", unit="metric")
 
     if request.method == "POST":
         location = request.form.get("location", "").strip()
-        if not location:
-            return render_template("index.html", error="Enter a city name.")
+        unit = request.form.get("unit", "metric")
+        if unit not in ("metric", "imperial"):
+            unit = "metric"
 
+        if not location:
+            return render_template("index.html", error="Enter a city name.", unit=unit)
         try:
-            data = get_weather(location)
+            data = get_weather(location, unit=unit)
         except CityNotFoundError:
-            return render_template("index.html", error=f"Couldn't find \"{location}\".")
+            return render_template("index.html", error=f"Couldn't find \"{location}\".", unit=unit)
         except requests.RequestException:
-            return render_template("index.html", error="Weather service is unavailable right now.")
+            return render_template("index.html", error="Weather service is unavailable right now.", unit=unit)
 
         rain_last_hour = data.get("rain", {}).get("1h", 0)
         weather_info = {
@@ -38,7 +41,7 @@ def index():
             "icon_url": get_icon_url(data),
         }
 
-        return render_template("index.html", weather=weather_info)
+        return render_template("index.html", weather=weather_info, unit=unit, location=location)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

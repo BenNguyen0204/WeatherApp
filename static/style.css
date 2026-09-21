@@ -146,9 +146,7 @@ body.light {
 .weather {
     display: flex;
     gap: 32px;
-    margin-top: 28px;
-    padding-top: 28px;
-    border-top: 1px solid var(--panel-edge);
+    margin-top: 20px;
 }
 
 .overview {
@@ -209,4 +207,27 @@ body.light {
     content: attr(data-value);
     color: var(--text);
     font-weight: 700;
+}
+
+#unit-toggle {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+
+    padding: 10px 14px;
+    border: 1px solid var(--panel-edge);
+    border-radius: 6px;
+
+    background: var(--panel);
+    color: var(--text);
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+#unit-toggle:hover {
+    border-color: var(--accent);
 }
