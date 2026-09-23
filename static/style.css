@@ -58,31 +58,32 @@ body.light {
 .hero {
     width: 560px;
     max-width: 100%;
+
+    .prompt {
+        font-size: 14px;
+        color: var(--accent);
+        margin-bottom: 18px;
+    }
+
+    .prompt::before {
+        content: "> ";
+    }
+
+    h1 {
+        font-size: 36px;
+        line-height: 1.2;
+        color: var(--text);
+        font-weight: 700;
+        margin-bottom: 14px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+        color: var(--muted);
+        margin-bottom: 28px;
+    }
 }
 
-.hero .prompt {
-    font-size: 14px;
-    color: var(--accent);
-    margin-bottom: 18px;
-}
-
-.hero .prompt::before {
-    content: "> ";
-}
-
-.hero h1 {
-    font-size: 36px;
-    line-height: 1.2;
-    color: var(--text);
-    font-weight: 700;
-    margin-bottom: 14px;
-}
-
-.hero .subtitle {
-    font-size: 15px;
-    color: var(--muted);
-    margin-bottom: 28px;
-}
 
 .search {
     width: 100%;
@@ -91,51 +92,53 @@ body.light {
     border: 1px solid var(--panel-edge);
     padding: 36px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+    form {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    input[type="text"] {
+        flex: 1;
+        border: 1px solid var(--panel-edge);
+        height: 56px;
+        line-height: 56px;
+        padding: 0 18px;
+        background: var(--bg);
+        color: var(--text);
+        border-radius: 6px;
+        outline: none;
+        caret-color: var(--accent);
+        font-size: 16px;
+    }
+
+    input[type="text"]::placeholder {
+        color: var(--muted);
+    }
+
+    input[type="text"]:focus {
+        border-color: var(--accent);
+    }
+
+    input[type="image"] {
+        border: none;
+        width: 56px;
+        height: 56px;
+        padding: 14px;
+        background: var(--accent);
+        border-radius: 6px;
+        cursor: pointer;
+        object-fit: contain;
+        filter: invert();
+    }
+
+    input[type="image"]:hover {
+        background: #f7bc75;
+    }
 }
 
-.search form {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
 
-.search input[type="text"] {
-    flex: 1;
-    border: 1px solid var(--panel-edge);
-    height: 56px;
-    line-height: 56px;
-    padding: 0 18px;
-    background: var(--bg);
-    color: var(--text);
-    border-radius: 6px;
-    outline: none;
-    caret-color: var(--accent);
-    font-size: 16px;
-}
-
-.search input[type="text"]::placeholder {
-    color: var(--muted);
-}
-
-.search input[type="text"]:focus {
-    border-color: var(--accent);
-}
-
-.search input[type="image"] {
-    border: none;
-    width: 56px;
-    height: 56px;
-    padding: 14px;
-    background: var(--accent);
-    border-radius: 6px;
-    cursor: pointer;
-    object-fit: contain;
-    filter: invert();
-}
-
-.search input[type="image"]:hover {
-    background: #f7bc75;
-}
 
 .error {
     margin-top: 16px;
@@ -155,25 +158,25 @@ body.light {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-.overview .weather-icon {
-    width: 64px;
-    margin-bottom: 10px;
-}
+    .weather-icon {
+        width: 64px;
+        margin-bottom: 10px;
+    }
 
-.overview .temp {
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1;
-}
+    .temp {
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1;
+    }
 
-.overview .city {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--muted);
+    .city {
+        margin-top: 10px;
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--muted);
+    }
 }
 
 .details {
@@ -181,32 +184,33 @@ body.light {
     flex-direction: column;
     justify-content: center;
     gap: 14px;
-}
 
-.details p {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    min-width: 250px;
-    font-size: 15px;
-    color: var(--muted);
-}
+    p {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        min-width: 250px;
+        font-size: 15px;
+        color: var(--muted);
+    }
 
-.details p .label {
-    display: block;
-    align-items: center;
-    gap: 8px;
-}
+    p .label {
+        display: block;
+        align-items: center;
+        gap: 8px;
+    }
 
-.details p .label img {
-    width: 16px;
-    height: 16px;
-}
+    p .label img {
+        width: 16px;
+        height: 16px;
+    }
 
-.details p::after {
-    content: attr(data-value);
-    color: var(--text);
-    font-weight: 700;
+    p::after {
+        content: attr(data-value);
+        color: var(--text);
+        font-weight: 700;
+    }
+
 }
 
 #unit-toggle {
